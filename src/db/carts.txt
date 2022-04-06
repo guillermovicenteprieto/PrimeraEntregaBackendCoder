@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "timestamp": "04/05/2022 11:30:28 PM",
+    "products": [
+      {
+        "id": 1,
+        "timestamp": "04/05/2022 11:30:24 PM",
+        "name": "",
+        "description": "",
+        "code": "",
+        "img": "",
+        "price": 0,
+        "stock": 0
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "timestamp": "04/05/2022 11:30:30 PM",
+    "products": [
+      {
+        "id": 1,
+        "timestamp": "04/05/2022 11:30:24 PM",
+        "name": "",
+        "description": "",
+        "code": "",
+        "img": "",
+        "price": 0,
+        "stock": 0
+      }
+    ]
+  }
+]

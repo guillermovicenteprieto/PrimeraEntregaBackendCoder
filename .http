@@ -1,4 +1,4 @@
-### productos
+### request productos
 
 ###
 GET http://localhost:8080/api/productos
@@ -23,71 +23,29 @@ Content-Type: application/json
 PUT http://localhost:8080/api/productos/1
 
 ###
-DELETE http://localhost:8080/api/productos/3
+DELETE http://localhost:8080/api/productos/1
 
 
 
-### carrito
-GET http://localhost:8080/api/carrito
+### request carrito
 
 ###
 POST http://localhost:8080/api/carrito
-Content-Type: application/json
-
-    {
-    "product_id": "1",
-    "quantity": "2"
-    }
-    
-###
-DELETE http://localhost:8080/api/carrito/7
-
 
 ###
-//error acá
-GET http://localhost:8080/api/carrito/1/product
-Content-Type: application/json
-
-{
-    "id": 1,
-    "producto 1": {
-        "id": 1,
-        "nombre": "producto 1",
-        "precio": 100,
-        "cantidad": 1
-    },
-}
-
+DELETE http://localhost:8080/api/carrito/3
 
 ###
-DELETE http://localhost:8080/api/carrito/1/product/1
-Content-Type: application/json
-    
-{
-    "id": 1,
-    "producto 1": {
-        "id": 1,
-        "nombre": "producto 1",
-        "precio": 100,
-        "cantidad": 1
-    },
-}
+GET http://localhost:8080/api/carrito
 
 ###
-POST http://localhost:8080/api/carrito/1/product
-Content-Type: application/json
-
-{
-    "id": 1,
-    "producto 1": {
-        "id": 1,
-        "nombre": "producto 1",
-        "precio": 100,
-        "cantidad": 1
-    },
-}
+POST http://localhost:8080/api/carrito/2/productos
 
 
+//problemas acá_1
+###
+GET http://localhost:8080/api/carrito/2/productos
 
-
-
+//problemas acá_2
+###
+DELETE http://localhost:8080/api/carrito/2/productos/1
