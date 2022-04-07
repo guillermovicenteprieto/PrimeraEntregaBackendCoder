@@ -60,9 +60,9 @@ class Products {
     async getById(id) {
         try {
             const data = await this.getAll();
-            const product = data.find((product) => product.id == id);
+            const product = data.find((product) => product.id == parseInt(id));
             if (!product) {
-                return 'No hay productos con éste id';
+                return 
             }
             return product;
         } catch (error) {
@@ -73,29 +73,21 @@ class Products {
     }
 
     async updated(id, product) {
-        try {
+        try 
+        {
             const data = await this.getAll();
-            if (data.length === 0) {
-                return 'No hay productos cargados con este id';
-            }
-            //data.splice(id, 1, product);
-            delete data[id];
-            data[id] = {
-                id: parseInt(id),
+            const index = data.findIndex((product) => product.id == id);
+            data[index] = {
+                id: id,
                 timestamp: moment().format("L LTS"),
-                name: product.name,
-                description: "Producto actualizado",
-                code: product.code,
-                img: product.img,
-                price: product.price,
-                stock: product.stock,
+                ...product,
             };
             await fs.writeFile(this.path, JSON.stringify(data, null, 2));
-            this.id++;
-            return data[id];
+            return data[index];
         } catch (error) {
             throw new Error((
                 "Se produjo un error en updated: " + error.message
+                    
             ));
         }
     }

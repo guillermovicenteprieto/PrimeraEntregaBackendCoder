@@ -52,7 +52,7 @@ cartRouter.get("/", async (req, res) => {
 //GET: '/:id/productos' - listar todos los productos guardados en el carrito
 cartRouter.get("/:id/productos", async (req, res) => {
     try {
-        const cart = await cartManager.cartProducts(req.params.id);
+        const cart = await cartManager.cartProd(req.params.id)
         res.status(200).json(cart);
     } catch (error) {
         res.status(500).json({
@@ -63,15 +63,16 @@ cartRouter.get("/:id/productos", async (req, res) => {
     }
 });
 
-//POST: '/:id/productos' - incorporar productos al carrito por su id de producto
-cartRouter.post("/:id/productos", async (req, res) => {
+//POST: '/:id/productos/:idP' - incorporar productos al carrito por su id de producto
+cartRouter.post("/:id/productos/:idP", async (req, res) => {
     try {
-        const product = await productsManager.getById(req.body.id)
-        const addToCart = await cartManager.addProduct(req.params.id, product);
-        // const prodInCart = await cartManager.cartProducts(req.params.id);
-        // cart.push(prodInCart);
-        //const cart = await cartManager.addProduct(req.params.id, product);
-        res.status(200).json(addToCart);
+        const product = await productsManager.getById(req.params.idP)
+        if (product) {
+            const cart = await cartManager.addProduct(req.params.id, product);
+            res.status(200).json(cart);
+        } else {
+            res.send("No se encuentran productos con éste id")
+        }
     } catch (error) {
         res.status(500).json({
             error: -1,
